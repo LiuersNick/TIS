@@ -23,7 +23,7 @@ def search(text)->list:
     return image_paths
 
 def main():
-    input_text = 'a computer'
+    input_text = 'A white dog'
     image_paths = search(input_text)
 
 if __name__ == '__main__':

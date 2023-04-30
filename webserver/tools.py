@@ -64,8 +64,6 @@ def main():
     result = read_mysql('image_info')
     for line in result:
         print(line)
-        i += 1
-    print(i)
 
 if __name__ == '__main__':
     main()
