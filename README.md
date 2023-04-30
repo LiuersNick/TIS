@@ -136,7 +136,7 @@ conda install -c conda-forge ipykernel # 确认安装前检查 conda 将要安�
 
     可以看到现在 Collection 中已经有 1000 个实体，这说明图片的embedding已经被成功插入到 Milvus中，可以进行检索了。
 
-    > "Attu" 是 Towhee 团队开发的一款用于可视化的管理 Milvus 与向量检索的软件，可以对 Collection 的各个配置进行查看、管理。需要说明的是，无论采用哪种索引方式，Milvus 都是基于内存进行索引的。在索引加载到内存前（```<collection_name>.load()```方法，详见```./webserver/test.ipynb```的步骤 "Check Milvus" ）Milvus无法进行查询操作。
+    > "Attu" 是 Towhee 团队开发的一款用于可视化的管理 Milvus 与向量检索的软件，可以对 Collection 的各个配置进行查看、管理。需要说明的是，无论采用哪种索引方式，Milvus 都是基于内存进行索引的。在索引加载到内存前（**<collection_name>.load()**方法，详见```./webserver/test.ipynb```的步骤 "Check Milvus" ）Milvus无法进行查询操作。
 
 ### **尝试检索**
 
