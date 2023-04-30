@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" href="static/TIS.png">
+    <title>Text 2 Image!</title>
+</head>
+
+<body>
+    <div id="main_box">
+        <div id="head">
+            <div id="head_left">
+                <img src="static/TIS.png" id="head_icon">
+            </div>
+            <div id="head_right">
+                <div id="head_right_title">
+                    <p id="head_title">Text Image Search</p>
+                </div>
+                <div id="head_right_info">
+                    <p id="head_info">Input text, and search for pictures!</p>
+                </div>
+            </div>
+        </div>
+        <div id="search_area">
+            <div id="search_table">
+                <form action="/search" method="get">
+                    <div id="input_box">
+                        <input type="text" name="input_text" required="required">
+                        <span>Search from here</span>
+                        <i></i>
+                    </div>
+                    <div id="buttom_search">
+                        <input id="search_button" type="submit" value="G O"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="result_area">
+            <!-- {% for path in paths%}
+            <div class="result_box">
+                <p class="label_box">Label</p>
+                <div class="image_box">
+                    <img src="{{url_for('static', filename=path)}}" class="image_result">
+                </div>
+            </div>
+            {% endfor%} -->
+        </div>
+        <img src="static/bottem_wave.png" id="bottem_img">
+    </div>
+</body>
+
+</html>

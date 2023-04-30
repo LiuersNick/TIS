@@ -1,0 +1,251 @@
+@font-face {
+    font-family: "Ubuntu";
+    src: url("Ubuntu-R-webfont.ttf");
+}
+
+*{
+    margin: 0px;
+}
+
+#main_box {
+    width: 1200px;
+    height: 800px;
+    margin: auto;
+    margin-top:50px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 3px 3px 9px rgb(83, 83, 83);
+    position: relative;
+}
+
+#head{
+    float: top;
+}
+
+#head_left {
+    width: 152px;
+    height: 127px;
+    float: left;
+}
+
+#head_right {
+    width: 1048px;
+    height: 127px;
+    float: left;
+}
+
+#head_right_title {
+    width: 1048px;
+    height: 46px;
+    margin: 0px;
+}
+
+#head_right_info {
+    width: 1048px;
+    height: 30px;
+}
+
+#head_icon {
+    width: 107px;
+    margin-top: 45px;
+    margin-left: 45px;
+    float: left;
+}
+
+#head_title {
+    font-family: "Ubuntu";
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0px;
+    margin-top: 45px;
+    margin-left: 30px;
+}
+
+#head_info {
+    font-family: "Ubuntu";
+    font-size: 26px;
+    margin: 0px;
+    margin-top:8px;
+    margin-left: 30px;
+}
+
+#search_area{
+    width: 1200px;
+    height: 220px;
+    float: left;
+    /* background-color: red; */
+}
+
+#search_table{
+    width: 500px;
+    height:44px;
+    margin: auto;
+    margin-top:140px;
+    /* background-color: rgba(0, 128, 0, 0.123); */
+    
+}
+
+/* Input Box */
+#input_box {
+    position: relative;
+    width: 320px;
+    height: 44px;
+    float: left;
+}
+
+#input_box input {
+    width: 100%;
+    padding: 15px 0 5px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    color: #000000;
+    font-size: 1.5em;
+    font-family: "ubuntu";
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+}
+
+#input_box span {
+    position: absolute;
+    left: 0;
+    padding: 10px 0 10px;
+    pointer-events: none;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: 0.5s;
+}
+
+#input_box input:valid~span,
+
+#input_box input:focus~span
+    {
+    color: #000000;
+    transform: translateY(-16px);
+    font-size: 1em;
+}
+
+#input_box i
+    {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #949494;
+    overflow: hidden;
+}
+
+#input_box i::before
+
+/* 在i标签的左边创建（伪元素）一个跟i等大的一条线，加上炫彩颜色 */
+    {
+    content: '';
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #EEBD89, #D13ABD, #C973FF, #6CC6CB, #9FA5D5, #EAD6EE);
+    animation: runing 1s linear infinite;
+    transition: 0.5s;
+}
+
+#input_box input:valid~i::before,
+#input_box input:focus~i::before {
+    left: 0;
+}
+
+/* 创建动画 */
+@keyframes runing {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 320px;
+    }
+}
+
+#buttom_search{
+    float: left;
+    width: 143px;
+    height: 44px;
+}
+
+#search_button{
+    width: 140px;
+    height: 44px;
+    margin-left: 40px;
+    float: left;
+    background-image: linear-gradient( 135deg, #F78DA7 10%, #8ED1fc 100%);
+    border-radius: 22px 22px 22px 22px;
+    transition: all 0.2s linear;
+    text-align: center;
+    font-size: 24px;
+    font-family: "Ubuntu";
+    font-weight: bold;
+    line-height: 44px;
+    color: white;
+    border: 0px;
+}
+
+#search_button:hover{
+    box-shadow: 0px 0px 10px rgb(66, 66, 66);
+}
+
+#result_area{
+    width: 1200px;
+    height: 380px;
+    float: left;
+}
+
+.result_box{
+    width: 220px;
+    height: 280px;
+    margin: 10px;
+    float: left;
+    transition: all 0.2s linear;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.result_box:hover{
+    box-shadow: 3px 3px 9px rgb(83, 83, 83);
+    background-color: white;
+}
+
+.label_box{
+    width: 220px;
+    height: 40px;
+    /* box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.452); */
+    font-family: "Ubuntu";
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 16px;
+}
+
+.image_box{
+    width: 220px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.image_result{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px 20px 20px 20px ;
+}
+
+#bottem_img{
+    width: 1200px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 0px 0px 20px 20px ;
+    z-index: -1;
+}
