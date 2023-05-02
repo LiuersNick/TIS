@@ -83,7 +83,7 @@ conda install -c conda-forge ipykernel # 确认安装前检查 conda 将要安�
     python ./webserver/A_create_milvus_collection.py
     ```
 
-    其中，Collection 名为"text_image_search"，其结构为下表所示：
+    其中，被创建的 Collection 名为"text_image_search"，其结构为下表所示：
     | Field Name | Field Type | Dimension | Index Type | Index Parameters |
     | -- | -- | -- | -- | -- |
     | id | int64 | - | - | - |
@@ -105,7 +105,7 @@ conda install -c conda-forge ipykernel # 确认安装前检查 conda 将要安�
     python ./webserver/B_create_mysql_database_and_insert.py
     ```
 
-    其中，Mysql 表名为 "image_info"，其结构为下表所示：
+    其中，被创建的表名为 "image_info"，其结构为下表所示：
     | Name | Type | Length | Not NULL | Keys | Description |
     | -- | -- | -- | -- | -- | -- |
     | id | int | 64 | Yes | Primary Key | ids |
@@ -126,7 +126,7 @@ conda install -c conda-forge ipykernel # 确认安装前检查 conda 将要安�
     python ./webserver/C_image_embedding_and_insert.py
     ```
 
-    此时可以在shell中看到Towhee执行各步骤的次数与用时。
+    这个过程需要花费几分钟的时间。待执行完毕，可以在 shell 中看到 Towhee 执行各步骤的次数与用时。
     
     ![insert_milvus](./pics/insert_milvus.png)
 
@@ -136,18 +136,18 @@ conda install -c conda-forge ipykernel # 确认安装前检查 conda 将要安�
 
     可以看到现在 Collection 中已经有 1000 个实体，这说明图片的embedding已经被成功插入到 Milvus中，可以进行检索了。
 
-    > "Attu" 是 Towhee 团队开发的一款用于可视化的管理 Milvus 与向量检索的软件，可以对 Collection 的各个配置进行查看、管理。需要说明的是，无论采用哪种索引方式，Milvus 都是基于内存进行索引的。在索引加载到内存前（**<collection_name>.load()**方法，详见```./webserver/test.ipynb```的步骤 "Check Milvus" ）Milvus无法进行查询操作。
+    > 需要说明的是，无论采用哪种索引方式，Milvus 都是基于内存进行索引的。在索引加载到内存前（ <collection_name>.load() 方法，详见 ```./webserver/test.ipynb``` 的步骤 "Check Milvus" ）Milvus无法进行查询操作。
 
 ### **尝试检索**
 
->   我们可以使用 ```./webserver/D_search_pipeline.py``` 中的 **search()** 方法来进行检索。调用 **search()**，需要以一段文本作为输入，待检索完毕后会输出与文本描述最为接近的五张图片的id与图片的路径。
+>   我们可以使用 ```./webserver/D_search_pipeline.py``` 中的 **search()** 方法来进行检索。调用 **search()**，需要以一段文本作为输入，待检索完毕后会输出与文本描述最为接近的五张图片的 id 与图片的路径。
 -   在 main 函数中修改变量 "input_text" 为你想要搜索的物品（e.g: A white dog; A comptuer, etc），并运行：
 
     ```bash
     python ./webserver/D_search_pipeline.py
     ```
 
-    此时可以在 shell 中看到输出。第一个列表为图片的id，第二个列表为id对应的图片路径：
+    此时可以在 shell 中看到输出。第一个列表为图片的id，第二个列表为 id 对应的图片路径：
 
     ![search_test](./pics/search_test.png)
 
@@ -155,7 +155,7 @@ conda install -c conda-forge ipykernel # 确认安装前检查 conda 将要安�
 
 ### **运行 Demo**
 
--   在目录 ```./webserver/下运行命令以启动 flask 前后端：
+-   在目录 ```./webserver/``` 下运行命令以启动 flask 前后端：
 
     ```bash
     cd webserver
