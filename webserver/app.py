@@ -13,7 +13,7 @@ def search_page():
     paths = search(get_data['input_text'])
     labels = []
     for path in paths:
-        label = path.split('/')[4]
+        label = path.split('/')[-2]
         labels.append(label)
     i=0
     output = []

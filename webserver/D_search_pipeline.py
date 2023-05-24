@@ -16,14 +16,14 @@ def search(text)->list:
     image_ids = search_pipeline(text).to_list()[0][0]
     image_paths = []
     for id in image_ids:
-        select_img = 'SELECT * FROM `image_info` WHERE `id` = ' + str(id) + ';'
+        select_img = 'SELECT * FROM `{}` WHERE `id` = {};'.format('image_info', id)
         image_paths.append(mysql_operate.db.select_db(select_img)[0]['path'])
     print(image_ids)
     print(image_paths)
     return image_paths
 
 def main():
-    input_text = 'A white dog'
+    input_text = 'a white dog'
     image_paths = search(input_text)
 
 if __name__ == '__main__':

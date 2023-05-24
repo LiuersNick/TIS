@@ -1,29 +1,32 @@
-import pandas as pd
 import os
+import csv
 
-# Recursively obtains all image information in dir_path and write.
-def walk_file_info(dir_path, csv_path)->str:
-    path_list = os.walk(dir_path)
+
+def walk_file_info(dir_path, csv_path):
+    image_infos = []
     ids = 0
-    result_path = []
-    for root, dirs, files in path_list:
+    for root, dirs, files in os.walk(dir_path):
         for file in files:
-            result_line = []
-            path = os.path.join(root, file)
-            label = path.split('/')[-2]
-            result_line.append(ids)
-            result_line.append(path)
-            result_line.append(label)
-            result_path.append(result_line)
-            ids += 1
-    df = pd.DataFrame(data=result_path, columns=['id', 'path', 'label'])
-    df.to_csv(csv_path, sep=',', index=False)
+            if file.lower().endswith(("png", "jpg", "jpeg")):
+                image_info = []
+                image_path = os.path.join(root, file)
+                image_label = image_path.split("/")[-2]
+                image_info.append(ids)
+                image_info.append(image_path)
+                image_info.append(image_label)
+                image_infos.append(image_info)
+                ids += 1
+    with open(csv_path, "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["id", "path", "label"])
+        writer.writerows(image_infos)
 
 
 def main():
-    dir_path = './webserver/static/train'
-    csv_path = './webserver/test1.csv'
-    walk_file_info(dir_path, csv_path)
+    data_path = "./webserver/static/test"
+    csv_path = "./webserver/test.csv"
+    walk_file_info(data_path, csv_path)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

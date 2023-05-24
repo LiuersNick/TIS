@@ -7,9 +7,8 @@ from pymilvus import (
     Collection
 )
 
-
-def create_milvus_collection(collection_name, dim):
-    connections.connect(host='127.0.0.1', port='19530')
+def create_milvus_collection(host, port, collection_name, dim):
+    connections.connect(host=host, port=port)
     
     if utility.has_collection(collection_name):
         utility.drop_collection(collection_name)
@@ -31,9 +30,11 @@ def create_milvus_collection(collection_name, dim):
     return collection
 
 def main():
+    host = '127.0.0.1'
+    port = 19530
     collection_name = 'text_image_search'
     collection_dim = 512
-    create_milvus_collection(collection_name, collection_dim)
+    create_milvus_collection(host, port, collection_name, collection_dim)
 
 if __name__ == '__main__':
     main()
